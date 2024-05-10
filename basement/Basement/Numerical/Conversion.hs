@@ -26,7 +26,7 @@ import GHC.Word
 import Basement.Compat.Primitive
 
 #if WORD_SIZE_IN_BITS < 64
-import GHC.IntWord64
+import GHC.Exts
 #endif
 
 intToInt64 :: Int -> Int64
@@ -114,7 +114,7 @@ word64ToWord32s (W64# w64) = Word32x2 (W32# (wordToWord32# (uncheckedShiftRL# w6
 #endif
 #else
 word64ToWord32s :: Word64 -> Word32x2
-word64ToWord32s (W64# w64) = Word32x2 (W32# (word64ToWord# (uncheckedShiftRL64# w64 32#))) (W32# (word64ToWord# w64))
+word64ToWord32s (W64# w64) = Word32x2 (W32# (wordToWord32# (word64ToWord# (uncheckedShiftRL64# w64 32#)))) (W32# (wordToWord32# (word64ToWord# w64)))
 #endif
 
 wordToChar :: Word -> Char

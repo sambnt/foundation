@@ -54,7 +54,7 @@ import GHC.Int
 import Basement.Compat.Primitive
 
 #if WORD_SIZE_IN_BITS < 64
-import GHC.IntWord64
+import GHC.Exts
 #endif
 
 -- | operation over finite bits

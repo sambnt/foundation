@@ -54,7 +54,7 @@ import           Basement.Nat
 import qualified Prelude (quot)
 
 #if WORD_SIZE_IN_BITS < 64
-import           GHC.IntWord64
+import           GHC.Exts
 #endif
 
 #ifdef FOUNDATION_BOUNDS_CHECK
